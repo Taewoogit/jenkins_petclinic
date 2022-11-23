@@ -13,14 +13,14 @@ pipeline {
         stage("Build image") {
             steps {
                 script {
-                    app = docker.build("exemplary-datum-362307/petclinic")
+                    app = docker.build("midyear-spot-368821/petclinic")
                 }
             }
           }
         stage('Push to registry') {
             steps {
              script {
-                        docker.withRegistry('https://asia.gcr.io', 'gcr:exemplary-datum-362307') {
+                        docker.withRegistry('https://asia.gcr.io', 'gcr:midyear-spot-368821') {
                         app.push("${env.BUILD_NUMBER}")
                     }
                 }
